@@ -736,7 +736,7 @@ impl fmt::Display for ReviewOrderSubclause {
                 let today = timing.days_elapsed;
                 let next_day_at = timing.next_day_at.0;
                 temp_string =
-                    format!("extract_fsrs_relative_overdueness(data, due, {today}, ivl, {next_day_at}) desc");
+                    format!("extract_fsrs_relative_overdueness(data, due, {today}, ivl, {next_day_at}) asc");
                 &temp_string
             }
             ReviewOrderSubclause::Added => "nid asc, ord asc",
