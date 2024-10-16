@@ -80,24 +80,25 @@ impl RelearnState {
 
     fn answer_hard(self, ctx: &StateContext) -> CardState {
         let memory_state = ctx.fsrs_next_states.as_ref().map(|s| s.hard.memory.into());
-        if let Some(hard_delay) = ctx
-            .relearn_steps
-            .hard_delay_secs(self.learning.remaining_steps)
-        {
-            RelearnState {
-                learning: LearnState {
-                    scheduled_secs: hard_delay,
-                    memory_state,
-                    ..self.learning
-                },
-                review: ReviewState {
-                    elapsed_days: 0,
-                    memory_state,
-                    ..self.review
-                },
-            }
-            .into()
-        } else if let Some(states) = &ctx.fsrs_next_states {
+        // if let Some(hard_delay) = ctx
+        //     .relearn_steps
+        //     .hard_delay_secs(self.learning.remaining_steps)
+        // {
+        //     RelearnState {
+        //         learning: LearnState {
+        //             scheduled_secs: hard_delay,
+        //             memory_state,
+        //             ..self.learning
+        //         },
+        //         review: ReviewState {
+        //             elapsed_days: 0,
+        //             memory_state,
+        //             ..self.review
+        //         },
+        //     }
+        //     .into()
+        // } else 
+        if let Some(states) = &ctx.fsrs_next_states {
             let (minimum, maximum) = ctx.min_and_max_review_intervals(1);
             let interval = states.hard.interval;
             let hard_review = ReviewState {
