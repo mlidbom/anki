@@ -68,10 +68,10 @@ impl RelearnState {
                 },
                 review: again_review,
             };
-            if ctx.relearn_steps.is_empty() && interval < 0.5 {
-                again_relearn.into()
-            } else {
+            if interval > 0.5 {
                 again_review.into()
+            } else {
+                again_relearn.into()
             }
         } else {
             self.review.into()
@@ -112,10 +112,10 @@ impl RelearnState {
                 },
                 review: hard_review,
             };
-            if ctx.relearn_steps.is_empty() && interval < 0.5 {
-                hard_relearn.into()
-            } else {
+            if interval > 0.5 {
                 hard_review.into()
+            } else {
+                hard_relearn.into()
             }
         } else {
             self.review.into()
@@ -162,10 +162,10 @@ impl RelearnState {
                 },
                 review: good_review,
             };
-            if ctx.relearn_steps.is_empty() && interval < 0.5 {
-                good_relearn.into()
-            } else {
+            if interval > 0.5 {
                 good_review.into()
+            } else {
+                good_relearn.into()
             }
         } else {
             self.review.into()
