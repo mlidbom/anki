@@ -51,7 +51,7 @@ impl LearnState {
             let (interval, short_term) = if let Some(states) = &ctx.fsrs_next_states {
                 (
                     states.again.interval,
-                    states.again.interval < 0.5
+                    states.again.interval < 0.5,
                 )
             } else {
                 (ctx.graduating_interval_good as f32, false)
@@ -96,7 +96,7 @@ impl LearnState {
             let (interval, short_term) = if let Some(states) = &ctx.fsrs_next_states {
                 (
                     states.hard.interval,
-                    states.hard.interval < 0.5
+                    states.hard.interval < 0.5,
                 )
             } else {
                 (ctx.graduating_interval_good as f32, false)
@@ -141,7 +141,7 @@ impl LearnState {
             let (interval, short_term) = if let Some(states) = &ctx.fsrs_next_states {
                 (
                     states.good.interval,
-                    states.good.interval < 0.5
+                    states.good.interval < 0.5,
                 )
             } else {
                 (ctx.graduating_interval_good as f32, false)
