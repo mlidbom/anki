@@ -83,15 +83,15 @@ impl LearnState {
 
     fn answer_hard(self, ctx: &StateContext) -> CardState {
         let memory_state = ctx.fsrs_next_states.as_ref().map(|s| s.hard.memory.into());
-        if let Some(hard_delay) = ctx.steps.hard_delay_secs(self.remaining_steps) {
-            LearnState {
-                scheduled_secs: hard_delay,
-                elapsed_secs: 0,
-                memory_state,
-                ..self
-            }
-            .into()
-        } else {
+        // if let Some(hard_delay) = ctx.steps.hard_delay_secs(self.remaining_steps) {
+        //     LearnState {
+        //         scheduled_secs: hard_delay,
+        //         elapsed_secs: 0,
+        //         memory_state,
+        //         ..self
+        //     }
+        //     .into()
+        // } else {
             let (minimum, maximum) = ctx.min_and_max_review_intervals(1);
             let (interval, short_term) = if let Some(states) = &ctx.fsrs_next_states {
                 (
@@ -123,7 +123,7 @@ impl LearnState {
                 }
                 .into()
             }
-        }
+        //}
     }
 
     fn answer_good(self, ctx: &StateContext) -> CardState {
