@@ -68,7 +68,7 @@ impl RelearnState {
                 },
                 review: again_review,
             };
-            if interval < 0.5 {
+            if interval < 2.0 {
                 again_relearn.into()
             } else {
                 again_review.into()
@@ -112,7 +112,7 @@ impl RelearnState {
                 },
                 review: hard_review,
             };
-            if interval < 0.5 {
+            if interval < 2.0 {
                 hard_relearn.into()
             } else {
                 hard_review.into()
@@ -162,7 +162,7 @@ impl RelearnState {
                 },
                 review: good_review,
             };
-            if interval < 0.5 {
+            if interval < 2.0 {
                 good_relearn.into()
             } else {
                 good_review.into()
